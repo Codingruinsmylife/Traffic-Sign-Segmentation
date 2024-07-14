@@ -19,21 +19,21 @@ This section will outline the key components that collectively contribute to the
 The dataset that will be used to perform segmentation consists of 70 traffic signs with different characteristics. For instance, there are regulatory traffic signs which indicate 
 speed limits and restrictions such as no entry signs, no U-turn signs, and so on. Also, warning signs such as pedestrian crossing signs and slippery road signs which are triangular are included in the dataset as well. The data collection process will also concern for the performance of the system may vary due to the different colors of traffic signs, hence, the blue color traffic signs will be taken into account to validate its performance. To test the robustness of the system, a variety of traffic signs under certain challenging scenarios such as traffic signs with degraded visibility due to variation in lighting, distorted signs with blurry resolution, and signs with complex backgrounds which is a result of urban environments with multiple objects and textures will be selected.
 2. **Data Preprocessing**
-* **Resizing**
+* **Resizing:**
 Initially, the dimensions of the input images will be adjusted to a standardized size to ensure all input images are having consistent dimensions, which will ease the segmentation model to perform its operation later. In fact, most of the machine learning models require a fixed input size to maximize efficiency and prevent any possible errors to occur.
-* **Normalization**
+* **Normalization:**
 Normalization is one of the fundamental steps in the pre-processing of the input images. It involves the scaling of the pixel values of the images to a consistent range which is either between 0 and -1 or -1 and 1. Normalizing the images will enhance the performance of the segmentation model in terms of generalization as the model will become less sensitive to the pixel values.
-* **Gaussian Blurring**
+* **Gaussian Blurring:**
 Gaussian blurring is a common image pre-processing operation that will be used in computer vision techniques which includes traffic sign segmentation. The main objective of this operation is to enhance the quality of images and improve the performance in subsequent image processing tasks.
-* **Brightening**
+* **Brightening:**
 Visibility of the input images is one of the crucial characteristics to ensure the maximization of the performance of the segmentation model. Therefore, brightening the input images is necessitated to improve the quality of the images by adjusting the brightness levels of the images.
-* **Grayscale Conversion**
+* **Grayscale Conversion:**
 Gray scale conversion is a process that converts the coloured input image to grayscale which is black and white by assigning a single intensity value to each pixel. After performing gray scale conversion, the luminance-based features are more emphasized, and easier for the segmentation model to detect the traffic signs and segment them out in a better performance based on the brightness difference.
-* **Canny Edge Detection**
+* **Canny Edge Detection:**
 Edges are the key features to identify the boundaries of the traffic signs, therefore, canny edge detection could assist in the identification of the edges by detecting rapid changes in intensity. After localizing the edges, the outlining of the traffic sign regions will be aided by Canny edge detection. In addition to that, noise and artifacts are the constraints in the segmentation of the traffic signs and they are not avoidable in real-world.
-* **Morphological Operation**
+* **Morphological Operation:**
 Morphological operations involved dilation and erosion which could help to enhance the shape of the region to be segmented. Dilation will expand the boundaries of the region to make them well-connected which contributes to a more accurate masking of the region of interest. In contrast, erosion shrinks the boundaries to separate or thin out the region. A fine-tuned balance between dilation and erosion could achieve a shape enhancement.
-* **Bilateral Filtering**
+* **Bilateral Filtering:**
 Bilateral filtering enhances the robustness of the segmentation model to reduce the impact of occlusion such as the traffic signs in the input images may be occluded by other objects in the background. In simpler words, it enables the segmentation model to discern relevant details with occluded signs and contribute to more accurate segmentation of traffic signs.
 3. **Model Selection & Training**<br>
 In this system, a **Histogram of Oriented Gradient (HOG)** features and **Support Vector Machine** is used in the process of training and testing the binary image classifier. HOG will used to extract the discriminative features from the training images, and it will construct a training dataset along with the corresponding class label and the SVM will used as the machine learning algorithm for the classification task. In the training phase, the training image will load and resize to 256x256 pixels. Then, it will be used as the input for training the SVM. The term criteria for the SVM training are 100 iterations and it will stop iterating if it reaches the maximum of 100 iterations. Then, the regularization parameter for the SVM training is set to 0.01 which is used to control the trade-off between maximizing the margin between classes and minimizing the classification errors.
@@ -133,5 +133,5 @@ We appreciate your interest in contributing to the Time Series Analysis Model pr
    * Include a detailed description of your changes.
   
 ## License
-The Time Series Analysis Model project is open-source and licensed under the [MIT License](LISENCE). By contributing to this project, you agree that your contributions will be licensed under this license. Thank you for considering contributing to our project. Your involvement helps make this project better for everyone. <br><br>
+The Traffic Sign Segmentation project is open-source and licensed under the [MIT License](LISENCE). By contributing to this project, you agree that your contributions will be licensed under this license. Thank you for considering contributing to our project. Your involvement helps make this project better for everyone. <br><br>
 **Have Fun!** 🚀
